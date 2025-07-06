@@ -1,0 +1,11 @@
+# Environment variables
+.env
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+.spotify_tokens.db
+
+# Dependencies
+node_modules/

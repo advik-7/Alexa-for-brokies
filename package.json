@@ -1,0 +1,83 @@
+{
+  "name": "spotify-controller-electron",
+  "version": "1.0.0",
+  "description": "A beautiful Electron app for controlling Spotify playback",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "NODE_ENV=development electron .",
+    "build": "electron-builder",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "keywords": [
+    "spotify",
+    "electron",
+    "music",
+    "player",
+    "controller"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^28.0.0",
+    "electron-builder": "^24.6.4"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "body-parser": "^1.20.2",
+    "axios": "^1.6.0",
+    "sqlite3": "^5.1.6",
+    "dotenv": "^16.3.1",
+    "node-fetch": "^2.7.0"
+  },
+  "pythonDependencies": {
+    "openwakeword": "^0.6.0",
+    "sounddevice": "^0.4.6",
+    "numpy": "^1.24.0",
+    "RealtimeSTT": "^0.1.0",
+    "onnxruntime": "^1.15.0",
+    "pyttsx3": "^2.90"
+  },
+  "build": {
+    "appId": "com.yourname.spotify-controller",
+    "productName": "Spotify Controller",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "app.js",
+      "db.js",
+      "controllers/**/*",
+      "routes/**/*",
+      "public/**/*",
+      "node_modules/**/*",
+      "package.json"
+    ],
+    "mac": {
+      "category": "public.app-category.music",
+      "icon": "assets/icon.icns"
+    },
+    "win": {
+      "icon": "assets/icon.ico",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        }
+      ]
+    },
+    "linux": {
+      "icon": "assets/icon.png",
+      "target": [
+        {
+          "target": "AppImage",
+          "arch": ["x64"]
+        }
+      ]
+    }
+  }
+} 
